@@ -1,0 +1,5 @@
+import win32com.client
+import time
+s = win32com.client.Dispatch("SAPI.SpVoice")
+s.Speak('hello world')
+time.sleep(2)

@@ -1,0 +1,46 @@
+do,ack
+"#upload a empty calf file,use it;upload data_LTE5.bin",
+,
+#make the empty calibration file fresh,
+FRMon action load agent RFAccess Rel3 RFInstance,done
+FRMon/Rel3/RFInstance action init RFAccess ,done
+FRMon/Rel3/RFInstance action calibrate,done
+,
+#active carrier,
+FRMon action load agent RFAccess Rel3 RFInstance,done
+FRMon/Rel3/RFInstance action init RFAccess,done 0x00
+FRMon/Rel3/RFInstance action tx_setup 1 1 1 LTE5 5000 9 0 0 16 TXfrequ,done
+FRMon/Rel3/RFInstance action tx_activate 1,done
+FRMon/Rel3/RFInstance action rx_setup 1 1 2 LTE5 9 0 1 16 RXfrequ,done
+FRMon/Rel3/RFInstance action rx_activate 2,done
+FRMon/Rel3/RFInstance action tx_test_ram_insertion 0 data_LTE5.bin 1 1 2 0 0x1FFF,done
+# wait for 4 seconds,
+#close temperature_compensation,
+FRMon/Rel3/RFInstance action temperature_compensation_control DOWNLINK DISABLED,done
+,
+#close dapd,
+FRMon action load agent DAPDAccess Rel3 DAPDInstance,done
+FRMon/Rel3/DAPDInstance action init DAPDAccess,done
+FRMon/Rel3/DAPDInstance action passthrough 1 1,done
+,
+#read offset,
+FRMon/Rel3/RFInstance action gain_loop_status 1 1,getvalue
+,
+"#read out power,calc gain = 47.78-Power+offset",
+,
+#enable gain,
+FRMon/Rel3/RFInstance action gain_loop 1 1 ENABLE G1gain,done
+# wait for 5 seconds,
+#read DAC word and temp,
+FRMon/Rel3/RFInstance action gain_loop_dac_word 1 1,getvalue
+FRMon action load agent GAIAAccess Rel3 GAIAInstance,done
+FRMon/Rel3/GAIAInstance action init GAIAAccess,done
+FRMon/Rel3/GAIAInstance action get_temperature RFCHAIN1,getvalue
+,
+#clean works,
+FRMon/Rel3/RFInstance action tx_inactivate 1,done
+FRMon/Rel3/RFInstance action tx_clear 1,done
+FRMon/Rel3/RFInstance action rx_inactivate 2,done
+FRMon/Rel3/RFInstance action rx_clear 2,done
+,
+"#record freq\""gain""\DAC word\temp",

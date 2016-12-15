@@ -1,0 +1,1 @@
+print "Your input is [%s]" % raw_input("Please input a number:")

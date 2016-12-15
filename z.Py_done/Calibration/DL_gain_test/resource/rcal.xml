@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FRCG -->
+<Calibration version="2.0">
+   <info timestamp="11.03.2014 09:19:46" productCode="473818A.X11" serialNumber="RY160402398" productSW="productsw" testerID="testerid" testerSW="testersw" hwId="" productName=""/>
+   <calibrationData generation="*" variant="*" revision="*">
+      <rf>
+         <GainFactors>
+            <Gain_Factor_2G>27.0</Gain_Factor_2G>
+            <LTE_Adj>0.0</LTE_Adj>
+         </GainFactors>
+      </rf>
+      <txs>
+         <tx index="1">
+            <dlGains>
+               <dlGain gainOffset="4.6" dacValue="667" frequency="871500" paTemperature="37"/>
+			   <dlGain gainOffset="4.5" dacValue="1331" frequency="874500" paTemperature="37"/>
+			   <dlGain gainOffset="5.2" dacValue="1331" frequency="877500" paTemperature="37"/>
+            </dlGains>
+            <psu>
+               <PaCalVoltage>26</PaCalVoltage>
+            </psu>
+         </tx>
+         <tx index="2">
+            <dlGains>
+			   <dlGain gainOffset="2.5" dacValue="1395" frequency="872500" temperature="43" paTemperature="58"/>
+               <dlGain gainOffset="2.5" dacValue="1395" frequency="875000" temperature="43" paTemperature="58"/>
+			   <dlGain gainOffset="2.5" dacValue="1395" frequency="877500" temperature="43" paTemperature="58"/>
+            </dlGains>
+            <psu>
+               <PaCalVoltage>26</PaCalVoltage>
+            </psu>
+         </tx>
+      </txs>
+      <rxs>
+         <rx index="1">
+            <rxGainCorrection temperature="30" DGatt0="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" 
+			DGrf0="" 
+			RFFreq=""
+			IFFreq="251400 248400 245400"
+			DGif0="0 0 0"/>
+            <if1DsaGain> 17.0 </if1DsaGain>
+         </rx>
+         <rx index="2">
+            <rxGainCorrection temperature="30" DGatt0="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" 
+			DGrf0="" 
+			RFFreq=""
+            IFFreq="251400 248400 245400"
+			DGif0="0 0 0"/>
+            <if1DsaGain> 17.0 </if1DsaGain>
+         </rx>
+		 <rx index="3">
+            <rxGainCorrection temperature="30" DGatt0="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" 
+			DGrf0="" 
+			RFFreq=""
+			IFFreq="251400 248400 245400"
+			DGif0="0 0 0"/>
+            <if1DsaGain> 17.0 </if1DsaGain>
+         </rx>
+         <rx index="4">
+            <rxGainCorrection temperature="30" DGatt0="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+			DGrf0=""
+			RFFreq=""
+			IFFreq="251400 248400 245400"
+			DGif0="0 0 0"/>
+            <if1DsaGain> 17.0 </if1DsaGain>
+         </rx>
+      </rxs>
+      <psa>
+         <inICorrOffset> 0.026 </inICorrOffset>
+         <inICorrFactor> 1.022 </inICorrFactor>
+      </psa>
+   </calibrationData>
+</Calibration>
